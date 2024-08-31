@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %} View All Projects {% endblock %}
+
+
+{% block body %}
+
+{% if projects | length < 1 %}
+<div class="text-center">
+    <h3 style="margin-top: 100px;">All projects </h3>
+    <a class="btn btn-success" href="/load-projects">Add</a>
+</div>
+
+{% else %}
+
+<div class="admin-wrapper">
+    <div class="left-sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View clients</a>
+            </li>
+            <li>
+                <a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">Registered Members</a>
+            </li>
+        </ul>
+            
+    </div>
+    <div class="admin-content">
+        <h3 class="text-center">All projects </h3>
+       
+        <a class="btn btn-success" href="/load-projects">Add Project</a>
+
+         <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Display Project</th>
+                    <th scope="col">Project Image</th>
+                    <th scope="col">Functions</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for project in projects %}
+        
+                <tr>
+                    <th scope="row">{{ project.id }}</th>
+                    <td>{{ project.title }}</td>
+                    <td>{{ project.location }}</td>
+                    <td>{{ project.price }}</td>
+                    <td>{{ project.display_project }}</td>
+                    <td><img src="../.{{ project.product_image }}" alt="" style="height: 50px; width: 50px;"></td>
+        
+        
+                    <td>
+                        <a class="btn btn-info" href="/update-project/{{ project.id }}">Update</a>
+                        <a class="btn btn-warning" href="/delete-project/{{ project.id }}">Delete</a>
+                    </td>
+        
+                </tr>
+        
+        
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}

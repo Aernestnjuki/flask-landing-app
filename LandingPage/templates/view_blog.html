@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %} View Blogs {% endblock %}
+
+
+{% block body %}
+
+{% if blogs | length < 1 %}
+<div class="text-center" style="margin-top: 100px;">
+    <h2>No blogs avalilable</h2>
+    <a class="btn btn-success" href="{{ url_for('admin.add_blog') }}">Add Blog</a>
+</div>
+{% else %}
+
+<div class="admin-wrapper">
+    <div class="left-sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View clients</a>
+            </li>
+            <li>
+                <a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">Registered Members</a>
+            </li>
+        </ul>
+            
+    </div>
+    <div class="admin-content">
+        <h2 class="text-center">View all Blogs</h2>
+       
+         <a class="btn btn-success" href="{{ url_for('admin.add_blog') }}">Add Blog</a>
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Blog Title</th>
+                    <th scope="col">Publish Blog</th>
+                    <th scope="col">Date aded</th>
+                    <th scope="col" colspan="2">Functions</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for blog in blogs %}
+        
+                <tr>
+                    <th scope="row">{{ blog.id }}</th>
+                    <td>{{ blog.blog_title }}</td>
+                    <td>{{ blog.display_blog }}</td>
+                    <td>{{ blog.date_added }}</td>
+        
+                    <td>
+                        <span><a class="btn btn-info" href="/update-blog/{{ blog.id }}">Update</a></span>
+                    </td>
+                    <td>
+                        <span><a class="btn btn-warning" href="/delete-blog/{{ blog.id }}">Delete</a></span>
+                    </td>
+        
+                </tr>
+        
+        
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}

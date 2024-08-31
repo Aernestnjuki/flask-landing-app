@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} Load Prohect {% endblock %}
+
+
+{% block body %}
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h2>Plots for sale in {{project.location}}</h2>
+            <h5>Projects name - {{ project.title}}</h5>
+            <h6>Price -<span style="color: red;">Ksh{{ "{:,}".format(project.price) }}</span></h6>
+            <div>
+                <strong>Project Description</strong><br>
+                <hr>
+                {{ project.about_project }}
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <img src="../../{{ project.project_image }}" alt="" style="width: 500px; height: 300px;">
+            <div  class="embed-responsive embed-responsive-16by9">
+                <video autoplay loop class="embed-responsive-item" style="height: 500px; width: 500px;">
+                    <source src="../../{{project.project_video}}">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <h3>Book for a site visit</h3>
+            <div>
+                We offer free site visits on every Wednesday, Friday and Saturdays. For this who like to drive themselves to the site, 
+                we can go any day as long as you communicate early. <hr>
+                whatsapp me at <a href="https://api.whatsapp.com/send?phone=254705203169&text=Hello!%20Aernest%20I%20am%20interested%20in%20Investing%20in%20real%20estate%20.%20.%20.%20" class="animate__animated animate__fadeInUp" style="background: rgb(7, 238, 7); text-decoration: none; padding: 10px 15px; font-size: 15px;">
+                    <i class="fa-brands fa-whatsapp"></i> Book for a site
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

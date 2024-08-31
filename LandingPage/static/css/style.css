@@ -1,0 +1,215 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.d-flex .btn{
+    background: orange;
+    border: 2px solid orange;
+    margin-right: 170px;
+    border-radius: 8px;
+    color: #fff;
+}
+.d-flex .btn:hover{
+    background: rgb(228, 150, 7);
+    border: 2px solid rgb(228, 150, 7);
+}
+
+.alert{
+    z-index: 10000000;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+.navbar{
+    padding: 20px;
+}
+
+.navbar-nav a{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-brand{
+    color: rgb(228, 150, 7);
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+.landing{
+    background-image: linear-gradient(rgba(21, 21, 21, 0.3), rgba(0, 0, 0, 0.3)), url("../images/landing.jpg");
+    background-size: cover;
+    background-position: center;
+    height: auto;
+}
+
+
+
+.carousel-item{
+    height: 60vh;
+    min-height: 250px;
+    
+}
+
+.carousel-item .carousel-caption h1{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.carousel-item .carousel-caption a{
+    font-size: 20px; 
+    background: rgb(7, 238, 7);
+    padding: 15px 30px;
+}
+
+.carousel-caption a{
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgb(228, 150, 7);
+    padding: 10px 20px;
+    font-size: 14px;
+    display: inline-block;
+    color: #fff;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+
+
+.wrapper-content{
+    margin: 20px 30px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;    
+}
+
+
+
+
+#who-am-i h2,
+#how-to-invest h2,
+#blog h2,
+#projects h2{
+    font-size: 40px;
+    color: rgb(228, 150, 7);
+}
+
+#who-am-i p{
+    font-size: 20px;
+}
+
+#how-to-invest button{
+    font-size: 20px;
+    background-color: azure;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#how-to-invest .accordion-body{
+    color: rgb(35, 33, 33);
+    font-size: 20px;
+}
+
+#projects ul{
+    list-style: none;
+    display: flex;
+}
+
+#projects ul li{
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+#projects ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+#projects .card-project{
+    background-color: azure;
+    border: 1px solid whitesmoke;
+    box-shadow: 5px 8px 8px rgba(21, 21, 21, 0.3);
+}
+
+#projects .card img{
+    height: 200px;
+}
+
+#projects .card a{
+    padding: 8px 25px;
+}
+
+#get-intouch h2{
+    font-size: 40px;
+    color: rgb(228, 150, 7);
+}
+
+/********************************  admin ********************************************/
+.admin-wrapper{
+    display: flex;
+    height: 80vh;
+    margin: 0;
+}
+
+.admin-wrapper .left-sidebar{
+    flex: 2;
+    height: 100%;
+    background: rgb(243, 197, 111);
+}
+.admin-wrapper .left-sidebar ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: aliceblue;
+}
+
+.admin-wrapper .left-sidebar ul li a {
+    font-size: 18px;
+    padding: 18px;
+    display: block;
+    background: rgb(91, 91, 229);
+    border-bottom: 1px solid #004044;
+}
+
+.admin-wrapper .left-sidebar ul li a:hover {
+    background: #004044;
+}
+
+.admin-wrapper .admin-content{
+    flex: 8;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+    background: wheat;
+}
+
+.admin-wrapper .admin-content h2{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.admin-wrapper .admin-content table thead tr th{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 720px) {
+    
+    
+    .carousel-caption h5{
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
+    
+}
+  

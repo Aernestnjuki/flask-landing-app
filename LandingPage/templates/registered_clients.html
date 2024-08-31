@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} View All registered clients {% endblock %}
+
+
+{% block body %}
+
+{% if clients | length < 1 %}
+<div class="text-center">
+    <h3 style="margin-top: 100px;">All projects </h3>
+    <a class="btn btn-success" href="/registered-clients">Add</a>
+</div>
+
+{% else %}
+
+<div class="admin-wrapper">
+    <div class="left-sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View clients</a>
+            </li>
+            <li>
+                <a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">Registered Members</a>
+            </li>
+        </ul>
+            
+    </div>
+    <div class="admin-content">
+        <h2>All registered clients </h2>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date joined</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for client in clients %}
+        
+                <tr>
+                    <th scope="row">{{ client.id }}</th>
+                    <td>{{ client.username }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.date_joined }}</td>
+        
+                </tr>
+        
+        
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}

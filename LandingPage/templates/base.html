@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css" />
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <title>
+        {% block title %}
+            Default title
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+
+    <!-- navbar section -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('views.index')}}">Affordable Land</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('views.index')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#who-am-i">Why Us?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#how-to-invest">How to Invest</a>
+                </li>
+                </ul>
+
+
+                <form class="d-flex" role="search" action="" method="POST">
+                    <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn" type="submit">Search</button>
+                </form>
+
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if current_user.is_authenticated and current_user.id == 1 %}
+                    <li class="nav-item mx-2" id="item1">
+
+                        <a class="nav-link text-grey" href="{{ url_for('admin.admins_panel') }}"><span class="badge bg-success"></span>Admin Panel</a>
+
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item mx-2" id="item2">
+                        <a class="nav-link text-grey" href="#projects"><span class="badge bg-success"></span> Projects</a>
+                    </li>
+
+                    <li class="nav-item mx-2" id="items">
+                        <a class="nav-link text-grey" href="#blog"><span class="badge bg-success"></span> Blog</a>
+                    </li>
+
+                    <li class="nav-item mx-2" id="item">
+
+                        <a class="nav-link text-grey" href="#get-intouch"><span class="badge bg-success"></span> Get Intouch</a>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {% if current_user.is_authenticated %}
+                            <li><a class="dropdown-item" href="/logout">Log Out </a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="/login">Login </a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </div>
+
+      
+
+      
+
+  
+
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert"">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <!-- main body-->
+
+    {% block body %}
+
+
+
+    {% endblock %}
+
+
+    <footer class="container-fluid  text-center p-2 mt-5" style="background-color: orange; color: white;">
+        <a href="https://github.com/Frost-Codes" style="color: white;">Njuki</a> | <span>
+        <i class="fa-solid fa-copyright"></i></span> 2024 All rights reserved
+
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Ckeditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="../static/js/owl.carousel.min.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/d5f4c7a1fb.js" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for( 'static', filename='js/js.js') }}"></script>
+
+    
+   
+
+
+</body>
+</html>

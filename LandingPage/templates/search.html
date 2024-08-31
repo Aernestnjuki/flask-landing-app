@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Load Prohect {% endblock %}
+
+
+{% block body %}
+
+
+{% if project | length < 1 %}
+    <h2>{{project.location }} project are not available. Leave your contact info, we will let you know when they are available.</h2>
+
+{% else %}
+
+<div class="card card-project">
+    <img src="{{ project.project_image}}" alt="" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">Plots for sale in {{ project.title}}</h5><br>
+        <div class="card-text">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6>Size</h6>
+                </div>
+                <div class="col-sm-4">
+                    50 by 100 
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6>Location</h6>
+                </div>
+                <div class="col-sm-4">
+                    {{ project.location }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6>Price</h6>
+                </div>
+                <div class="col-sm-4">
+                    Ksh {{ project.price }}
+                </div>
+            </div>
+            <hr>
+        </div>
+        <a href="{{url_for('views.about_project', id=project.id)}}" class="btn btn-info">More Info</a>
+    </div>
+
+{% endif %}
+
+{% endblock %}

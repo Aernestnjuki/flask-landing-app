@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Affordable Land in Kiambu County {% endblock %}
+
+{% block body %}
+
+<div class="admin-wrapper">
+    <div class="left-sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View clients</a>
+            </li>
+            <li>
+                <a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">Registered Members</a>
+            </li>
+        </ul>
+            
+    </div>
+    <div class="admin-content">
+        <h2>Welcome to the admins panel</h2>
+
+        <table class="table table-hover table-striped ">
+            <thead>
+                <tr>
+                    <th scope="col">Projects</th>
+                    <th scope="col">Interested Clients</th>
+                    <th scope="col">Blogs</th>
+                    <th scope="col">Logged Clients</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <th scope="row"><a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Customize Projects</a></th>
+                    <td scope="row"><a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View interested clients</a></td>
+                    <td scope="row"><a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Customize Blogs</a></td>
+                    <td scope="row"><a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">View registered clients</a></td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Load Prohect {% endblock %}
+
+
+{% block body %}
+
+<form class="container" style="margin-top: 100px;" method="POST", enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <label for="exampleInputEmail1">Project Title</label>
+        {{ form.title(class_="form-control", size=32) }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Project Location</label>
+        {{ form.location(class_="form-control", size=32) }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Project Price</label>
+        {{ form.price(class_="form-control", size=32) }}
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Project Image</label>
+        {{ form.project_image(class_="form-control", size=32) }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">About Project</label>
+        {{ form.about_project }}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Display Project</label>
+        {{ form.display_project }}
+    </div>
+
+      {{ form.add_project() }}
+</form>
+
+
+{% endblock %}

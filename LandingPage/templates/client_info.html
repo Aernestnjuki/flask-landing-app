@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} Interested Clients {% endblock %}
+
+
+{% block body %}
+
+{% if clients | length < 1 %}
+<h3 style="color: white;">View the interested clients</h3>
+
+{% else %}
+
+
+
+<div class="admin-wrapper">
+    <div class="left-sidebar">
+        <ul>
+            <li>
+                <a href="{{ url_for('admin.view_project')}}" class="btn btn-primary">Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.client_info') }}" class="btn btn-primary">View clients</a>
+            </li>
+            <li>
+                <a href="{{url_for('admin.view_blog')}}" class="btn btn-primary">Blogs</a>
+            </li>
+            <li>
+                <a href="{{ url_for('admin.registered_clients')}}" class="btn btn-primary">Registered Members</a>
+            </li>
+        </ul>
+            
+    </div>
+    <div class="admin-content">
+        <h2 class="text-center">View the interested clients</h2>
+
+        <table class="table table-striped table-hover"">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Client Phone</th>
+                    <th scope="col">Preffered Location</th>
+                    <th scope="col">Their Budget</th>
+                    <th scope="col">Date Added</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for client in clients %}
+        
+                <tr>
+                    <th scope="row">{{ client.id }}</th>
+                    <td>{{ client.client_name }}</td>
+                    <td>{{ client.phone_number }}</td>
+                    <td>{{ client.land_location }}</td>
+                    <td>{{ client.budget }}</td>
+                    <td>{{ client.date_added }}</td>
+        
+                </tr>
+        
+        
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}
